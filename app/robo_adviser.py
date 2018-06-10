@@ -9,12 +9,19 @@ load_dotenv() # loads environment variables set in a ".env" file, including the 
 # see: https://www.alphavantage.co/support/#api-key
 api_key = os.environ.get("ALPHAVANTAGE_API_KEY") or "OOPS. Please set an environment variable named 'ALPHAVANTAGE_API_KEY'."
 
-symbol = "NFLX" #TODO: capture user input
+symbol = "NFLX"
+#symbol = input("Please input a stock symbol (e.g. 'NFLX'): ")
+print(f"YOU CHOSE {symbol}")
 
 # see: https://www.alphavantage.co/documentation/#daily
-# TODO: assemble the request url to get daily data for the given stock symbol
+request_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={api_key}"
+print(request_url)
 
 # TODO: issue a "GET" request to the specified url, and store the response in a variable
+
+response = requests.get(request_url)
+print(response.status_code)
+print(response.text)
 
 # TODO: parse the JSON response
 

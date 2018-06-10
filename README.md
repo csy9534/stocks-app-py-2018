@@ -49,7 +49,7 @@ Run the recommendation script:
 
 ```sh
 # Homebrew-installed Python 3.x on Mac OS, not using Pipenv:
-python app/robo_adviser.py
+python3 app/robo_adviser.py
 
 # All others, including Pipenv on Mac or Windows:
 python app/robo_adviser.py
