@@ -55,4 +55,12 @@ python3 app/robo_adviser.py
 python app/robo_adviser.py
 ```
 
+## Testing
+
+To test, run from the root directory:
+
+```sh
+pytest
+```
+
 ## [License](LICENSE.md)
