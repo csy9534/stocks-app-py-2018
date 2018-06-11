@@ -1,8 +1,9 @@
+import csv
 from dotenv import load_dotenv
 import json
 import os
-import requests
 import pdb
+import requests
 
 def parse_response(response_text):
     results = []
@@ -19,6 +20,22 @@ def parse_response(response_text):
         }
         results.append(result)
     return results
+
+def write_prices_to_file(prices=[], filename="db/prices.csv"):
+    csv_filepath = os.path.join(os.path.dirname(__file__), "..", filename)
+    with open(csv_filepath, "w") as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=["timestamp", "open", "high", "low", "close", "volume"])
+        writer.writeheader()
+        for d in prices:
+            row = {
+                "timestamp": d["date"], # change attribute name to match project requirements
+                "open": d["open"],
+                "high": d["high"],
+                "low": d["low"],
+                "close": d["close"],
+                "volume": d["volume"]
+            }
+            writer.writerow(row)
 
 
 
