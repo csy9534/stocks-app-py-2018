@@ -4,7 +4,7 @@ A command-line Python application which processes user inputs and stock market d
 
 ## Installation
 
-First, "fork" [this upstream repository](https://github.com/prof-rossetti/stocks-app-py) under your own control.
+First, "fork" this upstream repository under your own control.
 
 Then download your forked version of this repository using the GitHub.com online interface or the Git command-line interface. If you are using command-line Git, you can download it by "cloning" it:
 
@@ -34,6 +34,8 @@ pip install -r requirements.txt
 ```
 
 If you are using Pipenv, enter a new virtual environment (`pipenv shell`) before running any of the commands below.
+
+All commands below assume you are running them from this repository's root directory.
 
 ## Setup
 
@@ -71,7 +73,7 @@ python app/robo_adviser.py
 
 ## Testing
 
-To test, run from the root directory:
+Run tests:
 
 ```sh
 pytest
