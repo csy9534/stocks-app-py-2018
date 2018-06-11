@@ -33,7 +33,11 @@ pip3 install -r requirements.txt
 pip install -r requirements.txt
 ```
 
+If you are using Pipenv, enter a new virtual environment (`pipenv shell`) before running any of the commands below.
+
 ## Setup
+
+### Environment Variables
 
 Obtain an [AlphaVantage API Key](https://www.alphavantage.co/support/#api-key), which the app will supply when issuing requests to the API.
 
@@ -41,17 +45,27 @@ To prevent your secret API Key from being tracked in version control, the applic
 
     ALPHAVANTAGE_API_KEY="abc123" # use your own API Key instead of "abc123"
 
-## Usage
+### CSV File
 
-If you are using Pipenv, enter a new virtual environment (`pipenv shell`) before running any of the commands below.
+Before running the application for the first time, setup a CSV file to store historical price data:
+
+```sh
+# Homebrew-installed Python 3.x on Mac OS:
+python3 app/prepare.py
+
+# All others:
+python app/prepare.py
+```
+
+## Usage
 
 Run the recommendation script:
 
 ```sh
-# Homebrew-installed Python 3.x on Mac OS, not using Pipenv:
+# Homebrew-installed Python 3.x on Mac OS:
 python3 app/robo_adviser.py
 
-# All others, including Pipenv on Mac or Windows:
+# All others:
 python app/robo_adviser.py
 ```
 
