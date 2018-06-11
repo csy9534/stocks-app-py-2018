@@ -2,11 +2,23 @@ from dotenv import load_dotenv
 import json
 import os
 import requests
-from IPython import embed
+import pdb
 
 def parse_response(response_text):
-    print(response_text)
-    return [] #TODO: parse the response text and return a list of daily dictionaries
+    results = []
+    time_series_daily = response_text["Time Series (Daily)"] #> a nested dictionary
+    for trading_date in time_series_daily: # FYI: can loop through a dictionary's top-level keys/attributes
+        prices = time_series_daily[trading_date] #> {'1. open': '101.0924', '2. high': '101.9500', '3. low': '100.5400', '4. close': '101.6300', '5. volume': '22165128'}
+        result = {
+            "date": trading_date,
+            "open": prices["1. open"],
+            "high": prices["2. high"],
+            "low": prices["3. low"],
+            "close": prices["4. close"],
+            "volume": prices["5. volume"]
+        }
+        results.append(result)
+    return results
 
 
 
